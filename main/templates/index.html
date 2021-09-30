@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>interfaces</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+    <div align="center">
+        <table border="1" >
+              <tr>
+                <tr>
+                    <th>Имя интерфейса</th>
+                    <th>IP</th>
+                    <th>Статус</th>
+                    <th>MAC-адресс</th>
+                    <th>MTU</th>
+                </tr>
+                {% for interface in interfaces %}
+                    <tr class = "interface" id = "{{interface.ifindex}}">
+                        <td>{{interface.ifname}}</td>
+                        <td contenteditable='true' class="ip">{{interface.ip}}</td>
+                        <td>{{interface.operstate}}</td>
+                        <td>{{interface.mac_address}}</td>
+                        <td>{{interface.mtu}}</td>
+                    </tr>
+                {% endfor %}
+                
+              </tr>
+        </table>
+        <button id = "save-button" onclick="save_ips()">Сохранить</button>
+    </div>
+</body>
+<script type="text/javascript">
+    function save_ips(argument) {
+        data = [];
+        $(".interface").each(function() {
+            ip = $( this ).children(".ip").text();
+            id = $( this ).attr("id");
+            data.push({ip:ip,id:id});
+        });
+        $("td").attr("bgcolor", "white");
+        $.ajax ({ 
+            url: "ajax", 
+            type: "POST",         
+            data: ({csrfmiddlewaretoken: "{{ csrf_token }}", type: 'save_ips', data: JSON.stringify(data)}),         
+            dataType: "json",        
+            success: function (data) {
+                
+                if (data.status == "err"){
+                    for (var i = 0; i < data.errors.length; i++) {
+                        $("#"+data.errors[i].id).children(".ip").attr("bgcolor", "#FF7F7F");
+                        alert(data.errors[i].message);
+                    }
+                }
+                else{
+
+                    alert("id успешно сохранены");
+                }
+            }        
+        });
+    }
+</script>
+</html>

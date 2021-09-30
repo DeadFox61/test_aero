@@ -1,0 +1,13 @@
+[
+{"ifindex":1,"ifname":"lo","mtu":65536,"operstate":"UNKNOWN","mac_address":"00:00:00:00:00:00","ip":""},
+{"ifindex":2,"ifname":"bond0","mtu":1500,"operstate":"DOWN","mac_address":"9a:15:b4:1c:ac:7d","ip":""},
+{"ifindex":3,"ifname":"main","mtu":1500,"operstate":"UP","mac_address":"00:24:ec:f0:a2:98","ip":"192.168.2.70"},
+{"ifindex":4,"ifname":"enp5s0f1","mtu":1500,"operstate":"DOWN","mac_address":"00:24:ec:f0:a2:99","ip":""},
+{"ifindex":5,"ifname":"enp5s0f2","mtu":1500,"qdisc":"noop","operstate":"DOWN","mac_address":"00:24:ec:f0:a2:9a","ip":""},
+{"ifindex":6,"ifname":"enp5s0f3","mtu":1500,"qdisc":"noop","operstate":"DOWN","mac_address":"00:24:ec:f0:a2:9b","ip":""},
+{"ifindex":7,"ifname":"inter","mtu":1500,"operstate":"UP","mac_address":"00:24:ec:f0:a2:9c","ip":""},
+{"ifindex":8,"ifname":"enp15s0","mtu":1500,"operstate":"DOWN","mac_address":"00:24:ec:f0:a2:9d","ip":""},
+{"ifindex":9,"ifname":"ntb0","mtu":65510,"operstate":"DOWN","mac_address":"5e:30:71:12:ab:f1","ip":""},
+{"ifindex":10,"ifname":"ens11f0","mtu":1500,"operstate":"DOWN","mac_address":"00:24:ec:f0:59:cd","ip":"172.29.29.3"},
+{"ifindex":11,"ifname":"ens11f1","mtu":1500,"operstate":"DOWN","mac_address":"00:24:ec:f0:59:d0","ip":""}
+]
